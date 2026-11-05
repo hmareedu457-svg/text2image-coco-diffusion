@@ -1,0 +1,42 @@
+{
+  "config": {
+    "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+    "scheduler": "DPMSolverMultistep",
+    "steps": 30,
+    "guidance": 7.5,
+    "resolution": 512,
+    "mean_clip_score": 28.209
+  },
+  "runs": [
+    {
+      "file": "run_01.png",
+      "prompt": "a red double-decker bus driving down a rainy city street",
+      "seed": 42,
+      "clip_score": 30.579
+    },
+    {
+      "file": "run_02.png",
+      "prompt": "a plate of pasta with tomato sauce and fresh basil on a wooden table",
+      "seed": 1234,
+      "clip_score": 25.735
+    },
+    {
+      "file": "run_03.png",
+      "prompt": "a brown dog jumping to catch a frisbee in a grassy park",
+      "seed": 7,
+      "clip_score": 25.136
+    },
+    {
+      "file": "run_04.png",
+      "prompt": "two people riding bicycles along a beach at sunset",
+      "seed": 2024,
+      "clip_score": 29.229
+    },
+    {
+      "file": "run_05.png",
+      "prompt": "a gray cat sleeping on a laptop keyboard next to a coffee mug",
+      "seed": 99,
+      "clip_score": 30.365
+    }
+  ]
+}
