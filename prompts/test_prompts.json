@@ -1,0 +1,7 @@
+[
+  {"id": 1, "category": "vehicle + scene",   "seed": 42,   "prompt": "a red double-decker bus driving down a rainy city street"},
+  {"id": 2, "category": "food",              "seed": 1234, "prompt": "a plate of pasta with tomato sauce and fresh basil on a wooden table"},
+  {"id": 3, "category": "animal + action",   "seed": 7,    "prompt": "a brown dog jumping to catch a frisbee in a grassy park"},
+  {"id": 4, "category": "people + outdoors", "seed": 2024, "prompt": "two people riding bicycles along a beach at sunset"},
+  {"id": 5, "category": "indoor objects",    "seed": 99,   "prompt": "a gray cat sleeping on a laptop keyboard next to a coffee mug"}
+]

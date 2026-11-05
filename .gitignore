@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Data: keep metadata + stats (tiny), ignore raw dumps and images (reproducible via script)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/images/
+
+# Large artifacts and model weights
+artifacts/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+wandb/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+.Rhistory

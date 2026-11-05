@@ -1,0 +1,18 @@
+{
+  "requested": 2000,
+  "kept": 1998,
+  "download_failed": 0,
+  "duplicate_captions_dropped": 2,
+  "resolution": 512,
+  "seed": 42,
+  "splits": {
+    "train": 1598,
+    "val": 199,
+    "test": 201
+  },
+  "caption_words": {
+    "min": 9,
+    "mean": 13.04,
+    "max": 25
+  }
+}

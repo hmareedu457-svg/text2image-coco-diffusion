@@ -1,0 +1,13 @@
+torch>=2.2
+torchvision>=0.17
+diffusers>=0.30
+transformers>=4.44
+accelerate>=0.33
+safetensors>=0.4
+pillow>=10.0
+numpy>=1.26
+pandas>=2.0
+matplotlib>=3.8
+tqdm>=4.66
+jupyter>=1.0
+pytest>=8.0
