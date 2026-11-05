@@ -16,13 +16,32 @@ def load_clip(model_id: str = TEXT_ENCODER_ID, device: str | None = None):
     return model, processor
 
 
+def _image_features(model, inputs) -> torch.Tensor:
+    """Projected image embeddings as a plain tensor.
+
+    Newer transformers versions return an output object from ``get_image_features``
+    instead of a tensor, so we call the vision tower + projection directly, which
+    behaves the same in every version.
+    """
+    pooled = model.vision_model(pixel_values=inputs["pixel_values"]).pooler_output
+    return model.visual_projection(pooled)
+
+
+def _text_features(model, inputs) -> torch.Tensor:
+    """Projected text embeddings as a plain tensor (version-proof, see above)."""
+    pooled = model.text_model(
+        input_ids=inputs["input_ids"], attention_mask=inputs.get("attention_mask")
+    ).pooler_output
+    return model.text_projection(pooled)
+
+
 @torch.no_grad()
 def embed_images(images: list[Image.Image], model, processor, batch_size: int = 32) -> torch.Tensor:
     device = next(model.parameters()).device
     out = []
     for i in range(0, len(images), batch_size):
         inputs = processor(images=images[i : i + batch_size], return_tensors="pt").to(device)
-        out.append(F.normalize(model.get_image_features(**inputs), dim=-1).cpu())
+        out.append(F.normalize(_image_features(model, inputs), dim=-1).cpu())
     return torch.cat(out)
 
 
@@ -38,7 +57,7 @@ def embed_texts(texts: list[str], model, processor, batch_size: int = 64) -> tor
             truncation=True,
             max_length=77,
         ).to(device)
-        out.append(F.normalize(model.get_text_features(**inputs), dim=-1).cpu())
+        out.append(F.normalize(_text_features(model, inputs), dim=-1).cpu())
     return torch.cat(out)
 
 
