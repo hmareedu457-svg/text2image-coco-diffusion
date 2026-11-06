@@ -1,10 +1,10 @@
 # Text-to-Image Generation with CLIP + Stable Diffusion (COCO subset)
 
-Generative-AI project: build a text→image pipeline on a curated **COCO** image–caption subset, establish a zero-shot **Stable Diffusion v1.5** baseline, then adapt it with **LoRA** fine-tuning.
+**IE7615 Deep Learning for AI, Group 1, Section 03** - generative project: build a text→image pipeline on a curated **COCO** image–caption subset, establish a zero-shot **Stable Diffusion v1.5** baseline, then adapt it with **LoRA** fine-tuning.
 
 | | |
 |---|---|
-| **Dataset** | COCO 2017 captions, 2,000 curated image–caption pairs (80/10/10 train/val/test) |
+| **Dataset** | COCO 2017 captions, 1,998 curated image–caption pairs (1,598 / 199 / 201 train/val/test) |
 | **Text encoder** | CLIP ViT-L/14 (frozen), the encoder SD v1.x conditions on |
 | **Generator** | Stable Diffusion v1.5 (latent diffusion, 512×512) via Hugging Face Diffusers |
 | **Baseline** | Zero-shot SD v1.5, DPM-Solver++ 30 steps, CFG 7.5 |
@@ -74,8 +74,9 @@ Everything is seeded: the same command produces the same subset.
 
 | Role | Owner | Scope |
 |---|---|---|
-| Data lead | | `scripts/prepare_data.py`, `src/t2i/data.py`, dataset stats |
-| Modeling lead | | `src/t2i/generate.py`, baseline, LoRA fine-tuning |
-| Evaluation & integration lead | | `src/t2i/evaluate.py`, metrics, human study, repo/tests/README, final report |
+| Data lead | Aditi Kulkarni | `scripts/prepare_data.py`, `src/t2i/data.py`, dataset stats |
+| Modeling lead | Aditya Sai Kumar Kusetti | `src/t2i/generate.py`, baseline, LoRA fine-tuning |
+| Evaluation lead | Sakshi Pawar | `src/t2i/evaluate.py`, metrics, human study |
+| Integration & docs lead | Hemanth Mareedu | repo, tests, README, final report |
 
 Branching: `main` is protected; work on `feature/<name>` branches and open pull requests. Commit messages: imperative mood, e.g. `Add caption deduplication`.
